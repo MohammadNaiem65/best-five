@@ -1,3 +1,14 @@
 body {
     font-family: 'Signika Negative', sans-serif;
 }
+
+#selected-players {
+    height: 20.5rem;
+    width: 20.5rem;
+}
+
+#selected-players-name {
+    list-style-type: decimal;
+    list-style-position: inside;
+    font-size: 1.5rem;
+}
