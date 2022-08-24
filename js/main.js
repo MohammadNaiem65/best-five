@@ -4,8 +4,14 @@ function addPlayerName(playerId, buttonId) {
     const makeLi = document.createElement("li");
     makeLi.innerText = playerName;
     const playerList = document.getElementById("selected-players-name");
-    playerList.appendChild(makeLi);
     const button = document.getElementById(buttonId);
+    if (playerList.children.length <= 4) {
+        playerList.appendChild(makeLi);
+    }
+    else if (playerList.children.length >= 5) {
+        alert("Can't add more than 5 players")
+        return;
+    }
     button.disabled = true;
     button.style.backgroundColor = "gray";
 }
@@ -46,7 +52,8 @@ document.getElementById("select-btn-nine").addEventListener("click", function ()
 /* ---------------------- Calculate Cost ---------------------- */
 document.getElementById("player-cost").addEventListener("click", function () {
     const inputValue = fieldValue("per-player-cost");
-    const totalPlayerCost = inputValue * 5;
+    const numbersOfPlayers = document.getElementById("selected-players-name");
+    const totalPlayerCost = inputValue * numbersOfPlayers.children.length;
     let getText = document.getElementById("total-player-cost");
     getText.innerText = totalPlayerCost;
 })
